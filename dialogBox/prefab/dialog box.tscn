@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://dialogBox/dialogue_buttom.gdshader" type="Shader" id=1]
 [ext_resource path="res://dialogBox/smart_label_bg.gd" type="Script" id=2]
@@ -24,9 +24,6 @@ height = 73
 [sub_resource type="DynamicFont" id=12]
 size = 32
 font_data = ExtResource( 6 )
-
-[sub_resource type="CubeMesh" id=15]
-size = Vector3( 0.3, 0.3, 0.3 )
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 4 )
@@ -66,6 +63,7 @@ script = ExtResource( 5 )
 top_node = NodePath("top_bg")
 center_node = NodePath("center_bg")
 buttom_node = NodePath("buttom_bg")
+reposition = true
 
 [node name="top_bg" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.238, 0.554, 0 )
@@ -83,10 +81,6 @@ modulate = Color( 0.0588235, 0.945098, 1, 1 )
 outline_modulate = Color( 0.0588235, 0.945098, 1, 1 )
 text = "123123123"
 font = SubResource( 12 )
-
-[node name="MeshInstance" type="MeshInstance" parent="top_bg"]
-visible = false
-mesh = SubResource( 15 )
 
 [node name="center_bg" type="Sprite3D" parent="."]
 material_override = SubResource( 9 )

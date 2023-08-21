@@ -37,8 +37,9 @@ func _process(delta):
 		var VIEW_MATRIX = cur_cam.global_transform
 		var offset_dir = MODEL_MATRIX.xform(origin_offset) - MODEL_MATRIX.xform(Vector3(0, 0, 0))
 		label_node.global_transform.origin = global_transform.origin - offset_dir ;
-		var tmp =  (VIEW_MATRIX.xform(label_node.global_transform.origin) + Vector3(origin_offset.x, origin_offset.y,  0.0))
-		label_node.global_transform.origin =  VIEW_MATRIX.xform_inv(tmp) 
+		
+		var tmp = VIEW_MATRIX.xform_inv(label_node.global_transform.origin) +  (Vector3(origin_offset.x, origin_offset.y,  0.0))
+		label_node.global_transform.origin = VIEW_MATRIX.xform(tmp) 
 
 #	if(occlusion_node != null):
 #		occlusion_node.texture.width = label_pixel_size.x
