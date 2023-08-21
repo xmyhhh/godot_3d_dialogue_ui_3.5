@@ -55,12 +55,26 @@ vec4 draw_triangle(vec4 in_color, vec2 in_pos, vec4 draw_color, vec2 pos, float 
 }
 
 void vertex(){
-	MODELVIEW_MATRIX =  INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]) ;
-	vec4 VERTEX4 = MODELVIEW_MATRIX * vec4(VERTEX.x,VERTEX.y,VERTEX.z, 1.0);
-	VERTEX = VERTEX4.xyz;
+
+	mat4 modelView = MODELVIEW_MATRIX;
+	// First colunm.
+	modelView[0][0] = 1.0; 
+	modelView[0][1] = 0.0; 
+	modelView[0][2] = 0.0; 
+
+	// Second colunm.
+	modelView[1][0] = 0.0; 
+	modelView[1][1] = 1.0; 
+	modelView[1][2] = 0.0; 
+
+	// Thrid colunm.
+	modelView[2][0] = 0.0; 
+	modelView[2][1] = 0.0; 
+	modelView[2][2] = 1.0; 
 	
-	vec4 offset_dir = CAMERA_MATRIX  * WORLD_MATRIX * vec4(origin_offset, 1.0) - CAMERA_MATRIX  * WORLD_MATRIX * vec4(0.,0.,0., 1.0);
-	float offset_dir_z_dis = dot(vec3(0, 0, -1), offset_dir.xyz);
+    VERTEX =  (modelView * vec4(VERTEX, 1.0)).xyz ;
+
+	vec4 offset_dir = MODELVIEW_MATRIX * vec4(origin_offset, 1.0) - MODELVIEW_MATRIX * vec4(0.,0.,0., 1.0);
 	VERTEX = VERTEX - offset_dir.xyz + vec3(origin_offset.x, origin_offset.y, 0.);
 }
 

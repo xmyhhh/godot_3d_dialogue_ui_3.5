@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://dialogBox/dialogue_buttom.gdshader" type="Shader" id=1]
 [ext_resource path="res://dialogBox/smart_label_bg.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 render_priority = 2
 shader = ExtResource( 3 )
 shader_param/size = Vector3( 148.5, 73, 0 )
-shader_param/origin_offset = Vector3( -1.23829, 0.55379, -0.576283 )
+shader_param/origin_offset = Vector3( -1.238, 0.554, 0 )
 shader_param/color_d = Color( 0.466667, 0.0666667, 0.631373, 1 )
 
 [sub_resource type="Gradient" id=7]
@@ -24,6 +24,9 @@ height = 73
 [sub_resource type="DynamicFont" id=12]
 size = 32
 font_data = ExtResource( 6 )
+
+[sub_resource type="CubeMesh" id=15]
+size = Vector3( 0.3, 0.3, 0.3 )
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 4 )
@@ -45,13 +48,13 @@ font_data = ExtResource( 6 )
 [sub_resource type="ShaderMaterial" id=11]
 render_priority = 2
 shader = ExtResource( 1 )
-shader_param/size = Vector3( 77, 70, 0 )
-shader_param/origin_offset = Vector3( 1.3723, -0.325864, 0.376614 )
+shader_param/size = Vector3( 75, 63, 0 )
+shader_param/origin_offset = Vector3( 1.372, -0.326, 0 )
 shader_param/color_d = Color( 0.0588235, 0.945098, 1, 1 )
 
 [sub_resource type="GradientTexture2D" id=6]
-width = 77
-height = 70
+width = 75
+height = 63
 
 [sub_resource type="DynamicFont" id=14]
 size = 32
@@ -63,10 +66,9 @@ script = ExtResource( 5 )
 top_node = NodePath("top_bg")
 center_node = NodePath("center_bg")
 buttom_node = NodePath("buttom_bg")
-reposition = true
 
 [node name="top_bg" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, -1.23829, 0.55379, -0.576283 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.238, 0.554, 0 )
 material_override = SubResource( 8 )
 texture = SubResource( 4 )
 script = ExtResource( 2 )
@@ -81,6 +83,10 @@ modulate = Color( 0.0588235, 0.945098, 1, 1 )
 outline_modulate = Color( 0.0588235, 0.945098, 1, 1 )
 text = "123123123"
 font = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="top_bg"]
+visible = false
+mesh = SubResource( 15 )
 
 [node name="center_bg" type="Sprite3D" parent="."]
 material_override = SubResource( 9 )
@@ -101,7 +107,7 @@ font = SubResource( 13 )
 autowrap = true
 
 [node name="buttom_bg" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 1.3723, -0.325864, 0.376614 )
+transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 1.372, -0.326, 0 )
 material_override = SubResource( 11 )
 texture = SubResource( 6 )
 script = ExtResource( 2 )
