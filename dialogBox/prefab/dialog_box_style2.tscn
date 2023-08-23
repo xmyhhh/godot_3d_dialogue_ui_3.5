@@ -79,6 +79,7 @@ igone_shading = true
 
 [node name="empty" type="Label3D" parent="buttom_gb"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130124, 0.303618, 2.53578e-23 )
+visible = false
 pixel_size = 0.005
 billboard = 1
 render_priority = 2
