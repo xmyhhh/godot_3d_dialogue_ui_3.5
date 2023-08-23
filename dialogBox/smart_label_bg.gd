@@ -2,7 +2,7 @@ tool
 extends Spatial
 
 onready var origin_offset = Vector3(0, 0, 0)
-#export(NodePath) var occlusion_node
+export(bool) var igone_shading = false
 
 var min_size = null
 var init = false
@@ -22,6 +22,10 @@ func _process(delta):
 	if(init):
 		label_pixel_size.x = max(label_pixel_size.x, min_size.x)
 		label_pixel_size.y = max(label_pixel_size.y, min_size.y)
+		
+	if(igone_shading):
+		return
+	
 	self.texture.width = label_pixel_size.x
 	self.texture.height = label_pixel_size.y
 	self.material_override.set_shader_param("size", label_pixel_size)
