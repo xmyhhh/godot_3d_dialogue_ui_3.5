@@ -51,8 +51,8 @@ void vertex(){
 	
     VERTEX =  (modelView * vec4(VERTEX, 1.0)).xyz ;
 
-	vec4 offset_dir = MODELVIEW_MATRIX * vec4(origin_offset, 1.0) - MODELVIEW_MATRIX * vec4(0.,0.,0., 1.0);
-	VERTEX = VERTEX - offset_dir.xyz + vec3(origin_offset.x, origin_offset.y, 0.);
+//	vec4 offset_dir = MODELVIEW_MATRIX * vec4(origin_offset, 1.0) - MODELVIEW_MATRIX * vec4(0.,0.,0., 1.0);
+//	VERTEX = VERTEX - offset_dir.xyz + vec3(origin_offset.x, origin_offset.y, 0.);
 }
 
 void fragment() {
