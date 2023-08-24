@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://dialogBox/dialogue_buttom.gdshader" type="Shader" id=1]
 [ext_resource path="res://dialogBox/smart_label_bg.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://LongZhuTi-Regular-2.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="ShaderMaterial" id=8]
-render_priority = 2
 shader = ExtResource( 3 )
 shader_param/size = Vector3( 148.5, 83, 0 )
 shader_param/origin_offset = Vector3( -1.238, 0.554, 0 )
@@ -25,12 +24,9 @@ height = 83
 size = 32
 font_data = ExtResource( 6 )
 
-[sub_resource type="CubeMesh" id=15]
-size = Vector3( 0.2, 0.2, 0.2 )
-
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 4 )
-shader_param/size = Vector3( 292, 119.5, 0 )
+shader_param/size = Vector3( 292, 102, 0 )
 shader_param/origin_offset = Vector3( 0, 0, 0 )
 shader_param/color_d = Color( 1, 1, 1, 1 )
 
@@ -39,22 +35,21 @@ shader_param/color_d = Color( 1, 1, 1, 1 )
 [sub_resource type="GradientTexture2D" id=5]
 gradient = SubResource( 10 )
 width = 292
-height = 119
+height = 102
 
 [sub_resource type="DynamicFont" id=13]
 size = 28
 font_data = ExtResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=11]
-render_priority = 2
 shader = ExtResource( 1 )
-shader_param/size = Vector3( 80, 90, 20 )
+shader_param/size = Vector3( 75, 73, 0 )
 shader_param/origin_offset = Vector3( 1.372, -0.326, 0 )
 shader_param/color_d = Color( 0.0588235, 0.945098, 1, 1 )
 
 [sub_resource type="GradientTexture2D" id=6]
-width = 80
-height = 90
+width = 75
+height = 73
 
 [sub_resource type="DynamicFont" id=14]
 size = 32
@@ -78,15 +73,11 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, 0 )
 pixel_size = 0.005
 billboard = 1
-render_priority = 3
-outline_render_priority = 3
+outline_render_priority = 0
 modulate = Color( 0.0588235, 0.945098, 1, 1 )
 outline_modulate = Color( 0.0588235, 0.945098, 1, 1 )
 text = "123123123"
 font = SubResource( 12 )
-
-[node name="MeshInstance" type="MeshInstance" parent="top_bg"]
-mesh = SubResource( 15 )
 
 [node name="center_bg" type="Sprite3D" parent="."]
 material_override = SubResource( 9 )
@@ -96,13 +87,11 @@ script = ExtResource( 2 )
 [node name="center" type="Label3D" parent="center_bg"]
 pixel_size = 0.005
 billboard = 1
-render_priority = 2
-outline_render_priority = 2
+outline_render_priority = 0
 modulate = Color( 0.427451, 0.0470588, 0.584314, 1 )
 outline_modulate = Color( 0.427451, 0.0470588, 0.584314, 1 )
 text = "this is test content, if change, 
-pleast reposition top and buttom
- node's position"
+pleast reposition top and buttom"
 font = SubResource( 13 )
 autowrap = true
 
@@ -112,17 +101,11 @@ material_override = SubResource( 11 )
 texture = SubResource( 6 )
 script = ExtResource( 2 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="buttom_bg"]
-transform = Transform( 1, 0, 0, 0, 1, 8.35189e-23, 0, 8.35188e-23, 1, 0, 0, 0 )
-mesh = SubResource( 15 )
-skeleton = NodePath("../../top_bg")
-
 [node name="buttom" type="Label3D" parent="buttom_bg"]
 transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, 0 )
 pixel_size = 0.005
 billboard = 1
-render_priority = 3
-outline_render_priority = 3
+outline_render_priority = 0
 modulate = Color( 0.427451, 0.0470588, 0.584314, 1 )
 outline_modulate = Color( 0.427451, 0.0470588, 0.584314, 1 )
 text = "..."

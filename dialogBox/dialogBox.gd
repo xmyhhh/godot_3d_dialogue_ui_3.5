@@ -77,7 +77,7 @@ func _process(delta):
 			
 		billboard(top_node, top_pos)
 		billboard(buttom_node, buttom_pos)
-#		update_render_layer()
+		update_render_layer()
 		
 func set_top(content):
 	dialog_content["top"] = content
@@ -134,21 +134,45 @@ func billboard(target_node, target_origin_offset):
 		target_node.global_transform.origin =  VIEW_MATRIX.xform(p)
 
 
-#func update_render_layer():
-#	var cur_cam = get_tree().get_root().get_viewport().get_camera()
+func update_render_layer():
+	var cur_cam = get_tree().get_root().get_viewport().get_camera()
 #	var projection = cur_cam.get_camera_projection()
-#
-#	var VIEW_MATRIX = cur_cam.global_transform
-#	var view_space = VIEW_MATRIX.xform(global_transform.origin)
-#	var clip_space_vec4 =  projection  * Vector4(view_space.x, view_space.y, view_space.z, 1)
-#	clip_space_vec4 /= clip_space_vec4.w
-#
-#	if(clip_space_vec4.z > 0.99 or clip_space_vec4.z < 0.88):
-#		hide()
-#	else:
-#		show()
-#
-#	var layer_index_base = int((1.0 - clip_space_vec4.z) * 100000)
-#	var layer_index_base_p = layer_index_base * 1.001
-#	var layer_index_base_pp = layer_index_base_p * 1.001
+	var VIEW_MATRIX = cur_cam.global_transform
+	var view_space = VIEW_MATRIX.xform_inv(global_transform.origin)
 	
+	var cam_far = cur_cam.far
+	var cam_near = cur_cam.near
+	
+	var proj_m20 = 0
+	var proj_m21 = 0
+	var proj_m22 =(cam_far + cam_near) / (cam_near - cam_far) 
+	var proj_m23 = 2 * (cam_far * cam_near) / (cam_near - cam_far) 
+	
+	var proj_m30 = 0
+	var proj_m31 = 0
+	var proj_m32 = -1
+	var proj_m33 = 0
+
+	var clip_space_z = view_space.x * proj_m20 + view_space.y * proj_m21 + view_space.z * proj_m22 + proj_m23
+	var clip_space_w = view_space.x * proj_m30 + view_space.y * proj_m31 + view_space.z * proj_m32 + proj_m33
+	
+	clip_space_z = clip_space_z/clip_space_w
+	
+	if(clip_space_z > 0.99 or clip_space_z < 0.88):
+		hide()
+	else:
+		show()
+
+	var layer_index_base = int((1.0 - clip_space_z) * 100000)
+	var layer_index_base_p = layer_index_base * 1.001
+	var layer_index_base_pp = layer_index_base_p * 1.001
+	print(get_path(), "layer_index_base", layer_index_base)
+	top_node.sorting_offset = layer_index_base_p
+	var p = top_node.sorting_offset
+	top_text_node.sorting_offset = layer_index_base_pp
+	
+	center_node.sorting_offset = layer_index_base
+	center_text_node.sorting_offset = layer_index_base_pp
+	
+	buttom_node.sorting_offset = layer_index_base_p
+	buttom_text_node.sorting_offset = layer_index_base_pp
