@@ -166,7 +166,7 @@ func update_render_layer():
 	var layer_index_base = int((1.0 - clip_space_z) * 100000)
 	var layer_index_base_p = layer_index_base * 1.001
 	var layer_index_base_pp = layer_index_base_p * 1.001
-	print(get_path(), "layer_index_base", layer_index_base)
+
 	top_node.sorting_offset = layer_index_base_p
 	var p = top_node.sorting_offset
 	top_text_node.sorting_offset = layer_index_base_pp
