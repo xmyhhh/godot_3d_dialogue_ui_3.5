@@ -26,7 +26,7 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 4 )
-shader_param/size = Vector3( 292, 102, 0 )
+shader_param/size = Vector3( 292, 119.5, 0 )
 shader_param/origin_offset = Vector3( 0, 0, 0 )
 shader_param/color_d = Color( 1, 1, 1, 1 )
 
@@ -35,7 +35,7 @@ shader_param/color_d = Color( 1, 1, 1, 1 )
 [sub_resource type="GradientTexture2D" id=5]
 gradient = SubResource( 10 )
 width = 292
-height = 102
+height = 119
 
 [sub_resource type="DynamicFont" id=13]
 size = 28

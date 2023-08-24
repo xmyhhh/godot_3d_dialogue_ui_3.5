@@ -7,9 +7,8 @@
 [ext_resource path="res://LongZhuTi-Regular-2.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="ShaderMaterial" id=8]
-render_priority = 2
 shader = ExtResource( 4 )
-shader_param/size = Vector3( 126, 73, 0 )
+shader_param/size = Vector3( 126, 83, 0 )
 shader_param/origin_offset = Vector3( -1.18595, 0.766533, 1.77505e-23 )
 shader_param/color_d = Color( 0.466667, 0.0666667, 0.631373, 0 )
 
@@ -18,7 +17,7 @@ shader_param/color_d = Color( 0.466667, 0.0666667, 0.631373, 0 )
 [sub_resource type="GradientTexture2D" id=4]
 gradient = SubResource( 7 )
 width = 126
-height = 73
+height = 83
 
 [sub_resource type="DynamicFont" id=12]
 size = 32
@@ -45,8 +44,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, 0 )
 pixel_size = 0.005
 billboard = 1
-render_priority = 3
-outline_render_priority = 3
+outline_render_priority = 0
 outline_modulate = Color( 1, 1, 1, 1 )
 text = "1231312"
 font = SubResource( 12 )
@@ -61,8 +59,7 @@ igone_shading = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130124, 0.303618, 2.53578e-23 )
 pixel_size = 0.005
 billboard = 1
-render_priority = 2
-outline_render_priority = 2
+outline_render_priority = 0
 modulate = Color( 0.0588235, 0.945098, 1, 1 )
 outline_modulate = Color( 0.0588235, 0.945098, 1, 1 )
 text = "this is test content, if change, 
@@ -82,8 +79,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130124, 0.303618, 2.53578e-
 visible = false
 pixel_size = 0.005
 billboard = 1
-render_priority = 2
-outline_render_priority = 2
+outline_render_priority = 0
 modulate = Color( 0.0588235, 0.945098, 1, 1 )
 outline_modulate = Color( 0.0588235, 0.945098, 1, 1 )
 text = "this is test content, if change, 
